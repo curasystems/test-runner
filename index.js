@@ -13,7 +13,7 @@ var argv = require('optimist')
 require('chai').should();
 
 var reporterResults = {};
-var Reporter = require('./reporters/'+argv.reporter);
+var Reporter = LookupMochaReport(argv.reporter);
 
 runTests('test/*.coffee', PassThroughReporter, function(firstError, result){
   if(firstError)
@@ -88,4 +88,16 @@ function PassThroughReporter(runner) {
   runner.on('end', function(){
     reporterResults.result = util.format('Passed %d/%d', passes, passes + failures);    
   });
+}
+
+function LookupMochaReport(name){
+
+  for( var propertyName in Mocha.reporters ){
+    if( propertyName.toLowerCase() === name ){
+      return Mocha.reporters[propertyName];
+    }
+  }
+  
+  console.error("ERR: Could not find reporter " + name );
+  return null;
 }
