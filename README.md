@@ -7,11 +7,11 @@ Simple test-runner to include as dev-dependency. Write a test.js and require thi
 
     npm install cura-test-runner --save-dev
 
-## test.js
+### test.js
 
     require('cura-test-runner')
 
-## Add this into package.json for convenience:
+### Add this into package.json for convenience:
 
     "scripts": {
       "test": "node test.js",
