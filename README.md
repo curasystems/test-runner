@@ -3,6 +3,10 @@ test-runner
 
 Simple test-runner to include as dev-dependency. Write a test.js and require this module to automatically run coffee tests with mocha.
 
+Install:
+
+    npm install cura-test-runner --save-dev
+
 **test.js**
 
     require('cura-test-runner')
