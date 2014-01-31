@@ -1,4 +1,8 @@
+'use strict';
+
 require('coffee-script-mapped');
+
+overrideProcessExitToDelayExitByMs(1500);
 
 var util = require('util')
 var growl = require('growl');
@@ -100,4 +104,14 @@ function LookupMochaReport(name){
   
   console.error("ERR: Could not find reporter " + name );
   return null;
+}
+
+function overrideProcessExitToDelayExitByMs(delayInMs){
+  var exit = process.exit;
+
+  process.exit = function(code){
+    setTimeout(function(){
+      exit(code);
+    },delayInMs);
+  };
 }
