@@ -1,6 +1,6 @@
 'use strict';
 
-require('coffee-script-mapped');
+require('coffee-script/register');
 
 overrideProcessExitToDelayExitByMs(1500);
 
