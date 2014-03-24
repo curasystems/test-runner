@@ -1,6 +1,7 @@
 'use strict';
 
 require('coffee-script/register');
+require('coffee-errors');
 
 overrideProcessExitToDelayExitByMs(1500);
 
@@ -13,8 +14,13 @@ var Mocha = require('mocha');
 var argv = require('optimist')
   .default('reporter', 'spec')
   .argv;
-  
-require('chai').should();
+
+var chai = require('chai')
+chai.should();
+
+global.expect = chai.expect;
+global.chai = chai;
+
 
 var reporterResults = {};
 var Reporter = LookupMochaReport(argv.reporter);
@@ -32,6 +38,7 @@ function runTests(files, reporter, cb){
   });
 
   addFilesToMocha(files, mocha, function(){
+    mocha.useColors = true;
     mocha.run(function(failures){
       var firstError = reporterResults.firstError;
       var result = reporterResults.result;

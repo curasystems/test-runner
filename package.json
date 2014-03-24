@@ -1,6 +1,6 @@
 {
   "name": "cura-test-runner",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple mocha test executor. Just add as dev-dependency and write a test.js with require('cura-test-runner') to run all coffee/mocha tests and get notified via growl of failures\"",
   "main": "index.js",
   "dependencies": {
@@ -10,7 +10,8 @@
     "optimist": "~0.6.0",
     "coffee-script": "~1.7.1",
     "diff": "~1.0.5",
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "coffee-errors": "^0.8.6"
   },
   "scripts": {
     "test": "mocha"
