@@ -4,7 +4,10 @@ var util = require('util');
 
 var growl = require('growl');
 var glob = require('glob');
+
 var chai = require('chai')
+var chaiAsPromised = require('chai-as-promised')
+chai.use(chaiAsPromised);
 
 var Mocha = require('mocha');
 
