@@ -15,6 +15,9 @@
     "mocha": "^1.18.2",
     "optimist": "^0.6.1"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "test": "mocha"
   },
